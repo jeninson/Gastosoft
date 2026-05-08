@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    min-height: 100vh;
+    /*background-color: black;
+    color: white;*/
+}
+.h{
+    grid-area: header;
+    background-color: #FFF2CC;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.n{
+    grid-area: nav;
+    background-color: #DAE8FC;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.c{
+    grid-area: main;
+    background-color: #F8CECC;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.a{
+    grid-area: aside;
+    background-color: #E1D5E7;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.f{
+    grid-area: footer;
+    background-color: #D5E8D4;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.panel{
+    display: grid;
+    height: 100vh;
+    grid-template-areas: 
+    "header" 
+    "nav"
+    "main"
+    "aside"
+    "footer";
+
+    @media (min-width: 320px){
+        background-color: greenyellow;
+        grid-template: 
+        "header" 80px
+        "nav" 40px
+        "main" auto
+        "aside" 50px
+        "footer" 30px / auto;
+    }
+
+    @media (min-width: 540px){
+        background-color: red;
+        grid-template: 
+        "header   header   nav" 80px
+        "main  main  main" auto
+        "aside  aside  aside" 50px
+        "footer   footer   footer" 50px / auto auto 80px;
+    }
+
+    @media (min-width: 900px){
+        background-color: blue;
+        grid-template: 
+        "header   header  header" 80px
+        "nav      nav     nav" 50px
+        "main     main    main" auto
+        "aside    aside   aside" 50px
+        "footer   footer  footer" 50px / auto auto 80px;
+    }
+    
+    @media (min-width: 1250px){
+        background-color: aqua;
+        grid-template: 
+        "header   header  header  header " 80px
+        "nav      main    main    aside" auto
+        "footer   footer  footer  footer" 50px / 100px auto auto 150px;
+    }
+}

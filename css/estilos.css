@@ -1,0 +1,21 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box; 
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    color: #b8b8b8;
+}
+.contenedor{
+    text-shadow: 3px 1px 3px #000000;
+}
+#msg{
+    color: #ff8c00;
+    text-align: center;
+}
+.sombra{
+    box-shadow: 2px 0px 10px green;
+    height: max-content;
+}

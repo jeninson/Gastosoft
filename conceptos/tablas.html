@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas en HTML</title>
+</head>
+<body>
+    <h1>Tablas en HTML</h1>
+    <h2>Tabla Básica de 3x3 (3fil/3col)</h2>
+    <table border="2px">
+        <tr>
+            <td><strong>Identificación</strong></td>
+            <td>Nombres y Apellidos</td>
+            <td>Salario</td>
+        </tr>
+        <tr>
+            <td>123456</td>
+            <td>Juan Pérez</td>
+            <td>37.000</td>
+        </tr>
+        <tr>
+            <td>987654</td>
+            <td>Ana Maria Gómez</td>
+            <td>45.000</td>
+        </tr>
+    </table>
+    <hr>
+    <h2>Tabla completa de 4x3 (4filas y 3 columnas)</h2>
+    <table border="1px" cellpadding="5px" cellspacing="5px">
+        <thead>
+            <tr style="background-color: green; color: white;">
+                <th>Identificación</th>
+                <th>Nombres y Apellidos</th>
+                <th>Salario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>12345</td>
+                <td>Juana Lucia Ariza</td>
+                <td>69.000</td>
+            </tr>
+            <tr>
+                <td>98765</td>
+                <td>Luis Ándres Mendoza</td>
+                <td>36.000</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2">TOTAL</th>
+                <th>105.000</th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

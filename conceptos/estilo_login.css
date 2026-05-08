@@ -1,0 +1,64 @@
+body{
+    background-color: antiquewhite;
+}
+main {
+    margin: 25%;
+}
+.contenedor {
+    border: 1px solid black;
+    padding: 20px;
+    box-shadow: 5px 5px 5px gray;
+    border-radius: 15px;
+}
+.titulo{
+    text-align: center;
+    padding-bottom: 25px;
+}
+.titulo h1{
+    margin: 0px;
+    padding: 5px;
+}
+.datos{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+    gap: 5px;
+}
+.datos input{
+    padding: 10px;
+    border-radius: 15px;
+}
+.datos label{
+    padding-left: 5px;
+}
+.botones{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+button{
+    background-color: black;
+    color: aliceblue;
+    padding: 10px;
+    border-radius: 15px;
+    transition: 1s all;
+}
+button:hover{
+    border: 2px solid black;
+    background-color: aliceblue;
+    color: black;
+}
+.botones span{
+    text-align: center;
+}
+.redes{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.redes img{
+    overflow: hidden;
+    max-width: 70px;
+    transition: 1s;
+}
+.redes img:hover{box-shadow: 2px 1px 3px black;}
