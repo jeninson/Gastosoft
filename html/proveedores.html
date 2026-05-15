@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GastoSoft - Gestión de Proveedores</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/estilo_sticht.css">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../js/tailwind-config.js"></script>]
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar (The Anchor) -->
+<aside class="fixed left-0 top-0 h-full w-sidebar-width bg-primary-container dark:bg-tertiary-container shadow-xl flex flex-col py-lg z-50">
+<div class="px-lg mb-xl">
+<h1 class="font-headline-md text-headline-md text-on-primary-container dark:text-on-tertiary-container">GastoSoft</h1>
+<p class="font-label-md text-label-md text-on-primary-container opacity-70">Portfolio Management</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md text-on-primary-container opacity-70 px-md py-sm hover:bg-surface-container/10 transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md text-on-primary-container opacity-70 px-md py-sm hover:bg-surface-container/10 transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Clients</span>
+</a>
+<!-- Active State: Providers -->
+<a class="flex items-center gap-md bg-surface-container-high dark:bg-surface-container-highest text-primary border-l-4 border-primary font-bold px-md py-sm active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-md text-label-md">Providers</span>
+</a>
+<a class="flex items-center gap-md text-on-primary-container opacity-70 px-md py-sm hover:bg-surface-container/10 transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-md text-label-md">Invoices</span>
+</a>
+<a class="flex items-center gap-md text-on-primary-container opacity-70 px-md py-sm hover:bg-surface-container/10 transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-on-primary-container/10 pt-md">
+<a class="flex items-center gap-md text-on-primary-container opacity-70 px-md py-sm hover:bg-surface-container/10 transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-md text-on-primary-container opacity-70 px-md py-sm hover:bg-surface-container/10 transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="ml-sidebar-width min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center w-full px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="bg-surface-container-low px-md py-xs rounded flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 font-body-md text-body-md w-64" placeholder="Buscar proveedores..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors p-sm rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors p-sm rounded-full">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="flex items-center gap-sm">
+<img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional corporate portrait of a middle-aged executive man with a friendly expression. He is wearing a dark suit and a crisp white shirt against a neutral, high-key studio background. The lighting is soft and professional, creating a clean, modern aesthetic that matches a high-end financial management application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNnWhQYTMwnQcxNr7q1atZWrBwWDGOT_hUQeX38HJibXiB2R1yFIOg6A1eoANi84GrZ6uJb-u0HnzJ5DImgvtzblLVlvYB57II8exeaX72uEMJaXkgYQwzzbobGOSDGn1_poEOmnO1Cmm_qyQ2rq5hLpon7L-fBIqdovOVZmaMLdYrWphXnpfFeyhUmvos3YMzzIr3lJMB68ynsLb-yzHr7fRwGKZNJQcp9l0Q1I0ZBUlJ43LPby0132DqXoYuGdWJPExwv7OWKL7w"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 p-lg max-w-container-max mx-auto w-full">
+<!-- Page Header & Actions -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-xl gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Gestión de Proveedores</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Control centralizado de suministros, facturación y plazos de pago.</p>
+</div>
+<div class="flex gap-md">
+<button class="bg-surface border border-outline text-primary px-lg py-sm rounded-lg font-label-md text-label-md flex items-center gap-sm hover:bg-surface-container transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined">post_add</span>
+                        Registrar Factura
+                    </button>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md text-label-md flex items-center gap-sm hover:opacity-90 transition-all active:scale-95 shadow-md">
+<span class="material-symbols-outlined">person_add</span>
+                        Nuevo Proveedor
+                    </button>
+</div>
+</div>
+<!-- Dashboard Top Grid: Urgency & Status -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg mb-xl">
+<!-- Upcoming Payments (Bento Style) -->
+<div class="lg:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-sm text-headline-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-error">pending_actions</span>
+                            Próximos Pagos a Proveedores
+                        </h3>
+<span class="font-label-md text-label-md text-primary bg-primary-fixed px-sm py-xs rounded">Próximos 7 días</span>
+</div>
+<div class="space-y-md">
+<!-- Critical Payment -->
+<div class="flex items-center justify-between p-md bg-error-container/20 border-l-4 border-error rounded-lg">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div>
+<p class="font-body-lg font-bold text-primary">Suministros Globales S.A.</p>
+<p class="font-body-sm text-on-error-container">Vence mañana • Factura #F-9021</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline-sm text-error">€4.250,00</p>
+<button class="text-error font-label-md text-label-md underline">Pagar ahora</button>
+</div>
+</div>
+<!-- Warning Payment -->
+<div class="flex items-center justify-between p-md bg-secondary-container/20 border-l-4 border-secondary rounded-lg">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<p class="font-body-lg font-bold text-primary">Tech Logistics SL</p>
+<p class="font-body-sm text-on-secondary-container">Vence en 4 días • Retención aplicada</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline-sm text-primary">€1.120,45</p>
+<button class="text-on-secondary-container font-label-md text-label-md underline">Ver detalles</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Summary -->
+<div class="bg-primary-container text-on-primary-container rounded-xl p-lg flex flex-col justify-between shadow-xl">
+<div>
+<p class="font-label-md text-label-md uppercase tracking-wider opacity-70">Saldo Total Pendiente</p>
+<h4 class="font-headline-lg text-[40px] leading-tight mt-xs">€24.890,12</h4>
+</div>
+<div class="mt-lg border-t border-on-primary-container/20 pt-lg">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-body-sm opacity-70">Proveedores Activos</p>
+<p class="font-headline-sm">42</p>
+</div>
+<div class="text-right">
+<p class="font-body-sm opacity-70">DSO Promedio</p>
+<p class="font-headline-sm">28 Días</p>
+</div>
+</div>
+<div class="mt-lg w-full bg-on-primary-container/10 h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary-fixed h-full w-2/3"></div>
+</div>
+<p class="font-body-sm mt-xs opacity-70">65% del límite de crédito utilizado</p>
+</div>
+</div>
+</div>
+<!-- Providers Data Table -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="px-lg py-md border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm">Listado de Proveedores</h3>
+<div class="flex gap-sm">
+<button class="p-sm hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-outline">filter_list</span>
+</button>
+<button class="p-sm hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-outline">download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase">Proveedor</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase">Categoría</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase text-right">Saldo Pendiente</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase">Próximo Pago</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase">Términos</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase text-center">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded bg-primary-fixed-dim text-primary font-bold flex items-center justify-center">S</div>
+<span class="font-body-md font-bold text-primary">Suministros Globales S.A.</span>
+</div>
+</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">Materia Prima</td>
+<td class="px-lg py-md font-body-md font-bold text-error text-right">€4.250,00</td>
+<td class="px-lg py-md font-body-md">
+<span class="flex items-center gap-xs text-error font-bold">
+<span class="material-symbols-outlined text-[16px]">event</span>
+                                        24 Oct 2023
+                                    </span>
+</td>
+<td class="px-lg py-md">
+<span class="bg-surface-container-high px-sm py-xs rounded font-label-md text-label-md">Neto 30</span>
+</td>
+<td class="px-lg py-md text-center">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">more_vert</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded bg-secondary-fixed text-primary font-bold flex items-center justify-center">T</div>
+<span class="font-body-md font-bold text-primary">Tech Logistics SL</span>
+</div>
+</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">Logística</td>
+<td class="px-lg py-md font-body-md font-bold text-primary text-right">€1.120,45</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">
+<span class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">event</span>
+                                        28 Oct 2023
+                                    </span>
+</td>
+<td class="px-lg py-md">
+<span class="bg-surface-container-high px-sm py-xs rounded font-label-md text-label-md">Neto 15</span>
+</td>
+<td class="px-lg py-md text-center">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">more_vert</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded bg-tertiary-fixed text-tertiary-container font-bold flex items-center justify-center">E</div>
+<span class="font-body-md font-bold text-primary">Energía Norte</span>
+</div>
+</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">Servicios</td>
+<td class="px-lg py-md font-body-md font-bold text-primary text-right">€840,00</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">
+<span class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">event</span>
+                                        15 Nov 2023
+                                    </span>
+</td>
+<td class="px-lg py-md">
+<span class="bg-surface-container-high px-sm py-xs rounded font-label-md text-label-md">Neto 30</span>
+</td>
+<td class="px-lg py-md text-center">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">more_vert</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded bg-primary-fixed text-primary font-bold flex items-center justify-center">O</div>
+<span class="font-body-md font-bold text-primary">Office Supply Co.</span>
+</div>
+</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">Mobiliario</td>
+<td class="px-lg py-md font-body-md font-bold text-on-tertiary-container text-right">€0,00</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant italic">Sin pagos</td>
+<td class="px-lg py-md">
+<span class="bg-surface-container-high px-sm py-xs rounded font-label-md text-label-md">Contado</span>
+</td>
+<td class="px-lg py-md text-center">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">more_vert</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-lg py-md border-t border-outline-variant flex items-center justify-between bg-surface-container-low">
+<span class="font-body-sm text-on-surface-variant">Mostrando 4 de 42 proveedores</span>
+<div class="flex gap-xs">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-label-md text-label-md">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-surface transition-colors font-label-md text-label-md">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Contextual -->
+<footer class="p-lg mt-auto text-center">
+<p class="font-body-sm text-outline">© 2023 GastoSoft ERP - Sistema de Gestión de Cartera de Proveedores Protegido</p>
+</footer>
+</div>
+</body></html>
