@@ -18,6 +18,7 @@ function login() {
     console.log('Contraseña:', clave);
     console.log('Valor del campo email:', user);
     alert(`Usuario: ${usuario}\nContraseña: ${clave}\nValor del campo email: ${user}`);
+    //Ahora debemos validar los datos
 }
 
 
