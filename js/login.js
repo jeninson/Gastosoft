@@ -22,7 +22,7 @@ export async function validarCredenciales() {
         method: "POST",
         param: {usuario, clave: claveEncriptada},
         fSuccess: (resp)=>{
-            if(resp.code !== 200){
+            if(resp.code == 200){
                 alert("El usuario ha iniciado sesión correctamente.");
                 ir("dash.html")
             }
