@@ -31,11 +31,7 @@
             
             $this->connect();
         }
-        
-        // Clonación y deserialización prohibidas para mantener el Singleton
-        private function __clone() {}
-        private function __wakeup() {}
-        
+                
         // Método estático para obtener la instancia única
         public static function getInstance(): DbConfig
         {
@@ -66,6 +62,11 @@
             return $this->connection;
         }
         
+        
+        // Clonación y deserialización prohibidas para mantener el Singleton
+        private function __clone() {}
+        //private function __wakeup() {}
+
         // (Opcional) Método para cerrar la conexión manualmente
         public function closeConnection(): void
         {

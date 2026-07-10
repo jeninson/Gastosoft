@@ -15,16 +15,15 @@ export async function validarCredenciales() {
         alert('La contraseña debe tener al menos 4 caracteres.');
         return;
     }
-    const datos = {parametros: {usuario, clave: claveEncriptada}, url:"http://localhost:8080/api/login", method: "POST"};
-    console.log('Datos a enviar:', datos);
+    
     await enviarPeticion({
-        url: "http://localhost:8080/api/login",
+        url: "../backend/login/",
         method: "POST",
         param: {usuario, clave: claveEncriptada},
         fSuccess: (resp)=>{
             if(resp.code == 200){
                 alert("El usuario ha iniciado sesión correctamente.");
-                ir("dash.html")
+                //ir("dash.html")
             }
             else {alert(resp.msg)}
         }
